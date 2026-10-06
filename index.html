@@ -68,7 +68,7 @@
       <div class="section-head">
         <span class="section-index mono">01</span>
         <h2>Selected Work</h2>
-        <span class="section-count mono">(05)</span>
+        <span class="section-count mono">(06)</span>
       </div>
 
       <ol class="work-list">
@@ -97,8 +97,8 @@
           <a class="work-row reveal" href="projects/easydine.html">
             <span class="w-idx mono">003</span>
             <span class="w-title">Easy Dine</span>
-            <span class="w-desc">iOS app for recipes, weekly meal plans and grocery lists with real price estimates.</span>
-            <span class="w-tags mono">iOS · Product</span>
+            <span class="w-desc">Mobile app for recipes, weekly meal plans and grocery lists with real price estimates.</span>
+            <span class="w-tags mono">iOS · Android</span>
             <span class="w-year mono">2026</span>
             <span class="w-arrow" aria-hidden="true">→</span>
           </a>
@@ -123,6 +123,16 @@
             <span class="w-arrow" aria-hidden="true">→</span>
           </a>
         </li>
+        <li>
+          <a class="work-row reveal" href="projects/raft-kv.html">
+            <span class="w-idx mono">006</span>
+            <span class="w-title">Raft KV Store</span>
+            <span class="w-desc">Fault-tolerant key-value store on a from-scratch Raft implementation, plus a peer-to-peer DHT.</span>
+            <span class="w-tags mono">Go · Distributed Systems</span>
+            <span class="w-year mono">2024</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
       </ol>
     </section>
 
@@ -135,27 +145,25 @@
 
       <div class="about-grid">
         <p class="about-lead reveal">
-          I like problems that sit between theory and practice — where the
-          elegant answer also has to ship.
+          I like using my skills and creativity in different projects 
         </p>
         <div class="about-body reveal">
           <p>
-            Write two or three short paragraphs about yourself here: what you
-            study or work on, what you're curious about, and what kind of work
-            you're looking for next.
+            I enjoy using tools and technologies currently available to me to be able to create new things, whether it be games or software. 
+            I also try to understand how these underlying tools and technologies work, so that its clear where the gaps are and why certain things are used as standards.
           </p>
           <p>
-            Outside of code, mention a thing or two that makes you a person —
-            running, film photography, chess, whatever is true.
+            Outside of work, I enjoy swimming, reading and football :D
           </p>
         </div>
 
         <div class="skills reveal">
           <h3 class="mono">Toolkit</h3>
           <ul class="skill-cols mono">
-            <li><span>Languages</span>Python, TypeScript, C/C++, Go, SQL</li>
-            <li><span>Frameworks</span>React, Node, PyTorch, FastAPI</li>
-            <li><span>Tools</span>Git, Docker, Linux, AWS, Postgres</li>
+            <li><span>Languages &amp; Frameworks</span>Python, Java, C/C++, Go, SQL, JavaScript, React, Node.js, FastAPI, PyTorch, Hugging Face</li>
+            <li><span>Privacy &amp; Security</span>Threat modeling (LINDDUN Pro), privacy reviews, privacy attacks, access controls, GDPR, CCPA, COPPA</li>
+            <li><span>AI &amp; Data</span>LLM pipelines, AI agents (MCP), RAG, context engineering, LLM evaluation, Apache Spark, Power BI, Tableau</li>
+            <li><span>Infrastructure</span>PostgreSQL, MongoDB, Qdrant, Docker, AWS, Git, Linux</li>
           </ul>
         </div>
       </div>
@@ -168,34 +176,66 @@
         <h2>Experience</h2>
       </div>
 
+      <h3 class="exp-group mono">Work</h3>
       <ul class="exp-list">
         <li class="exp-row reveal">
-          <span class="exp-date mono">2026 — Now</span>
+          <span class="exp-date mono">Jun — Aug 2026</span>
           <div class="exp-main">
-            <h3>Role Title <span class="at">@ Company</span></h3>
-            <p>One or two lines on what you built and the impact it had.</p>
+            <h3>Research Assistant <span class="at">@ Carnegie Mellon University, S3D</span></h3>
+            <ul class="exp-points">
+              <li>Built an LLM pipeline that finds privacy threats in system designs and source code using LINDDUN Pro, linking each one to the GDPR, CCPA or COPPA requirement it affects. Presented at IEEE ISoPE 2026.</li>
+              <li>Evaluated it against 99 expert-written threats from NIST SP 1800 on recall, precision and citation correctness, using ablation studies to trace errors to the model, retrieved context or prompts.</li>
+            </ul>
+            <p class="exp-tags mono">LLM pipelines · Threat modeling · Python</p>
           </div>
-          <span class="exp-type mono">Internship</span>
+          <span class="exp-type mono">Pittsburgh, US</span>
         </li>
         <li class="exp-row reveal">
-          <span class="exp-date mono">2025</span>
+          <span class="exp-date mono">Jun — Aug 2023</span>
           <div class="exp-main">
-            <h3>Teaching Assistant <span class="at">@ University</span></h3>
-            <p>Course name — led recitations, held office hours, wrote autograders.</p>
+            <h3>Data and Analytics Intern <span class="at">@ Inditech Middle East</span></h3>
+            <ul class="exp-points">
+              <li>Wrote 100+ SQL queries and built AWS data pipelines merging separate sales and inventory systems; traced the root causes of unreliable reports and fixed them, applying access controls and data minimization.</li>
+              <li>Built Power BI and Tableau dashboards for management that led to fewer overstock incidents.</li>
+            </ul>
+            <p class="exp-tags mono">SQL · Python · AWS · Power BI · Tableau</p>
           </div>
-          <span class="exp-type mono">Part-time</span>
+          <span class="exp-type mono">Dubai, UAE</span>
         </li>
         <li class="exp-row reveal">
-          <span class="exp-date mono">2024 — 2028</span>
+          <span class="exp-date mono">2023 — 2025</span>
           <div class="exp-main">
-            <h3>B.S. Computer Science <span class="at">@ University</span></h3>
-            <p>Relevant coursework, honors, or concentration.</p>
+            <h3>Teaching Assistant <span class="at">@ LUMS</span></h3>
+            <ul class="exp-points">
+              <li>Reviewed and debugged code from 500+ students across five courses over four semesters.</li>
+              <li>Courses included Algorithms, Computational Problem Solving (C++), Advanced Programming (Haskell, Typescript, React)</li>
+            </ul>
           </div>
-          <span class="exp-type mono">Education</span>
+          <span class="exp-type mono">Lahore, PK</span>
         </li>
       </ul>
 
-      <a class="resume-link mono" href="resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) ↓</a>
+      <h3 class="exp-group mono">Education</h3>
+      <ul class="exp-list">
+        <li class="exp-row reveal">
+          <span class="exp-date mono">Aug 2025 — Dec 2026</span>
+          <div class="exp-main">
+            <h3>M.S. Privacy Engineering and AI Governance <span class="at">@ Carnegie Mellon University</span></h3>
+            <p>Engineering Privacy in Software, Usable Privacy and Security, Distributed Systems, Deep Learning, Database Management</p>
+          </div>
+          <span class="exp-type mono">Pittsburgh, US</span>
+        </li>
+        <li class="exp-row reveal">
+          <span class="exp-date mono">Aug 2020 — Jul 2025</span>
+          <div class="exp-main">
+            <h3>B.S. Major in Computer Science, Minor in Economics <span class="at">@ LUMS</span></h3>
+            <p>Algorithms, Data Structures, Network Security, Computer Organization, Artificial Intelligence</p>
+          </div>
+          <span class="exp-type mono">Lahore, PK</span>
+        </li>
+      </ul>
+
+      <a class="resume-link mono" href="MuhammadBilalAli_Resume.pdf" download>Download résumé (PDF) ↓</a>
     </section>
 
     <!-- ============ CONTACT ============ -->
@@ -205,19 +245,15 @@
         <h2>Contact</h2>
       </div>
 
-      <p class="contact-kicker mono">Have a project, role, or idea?</p>
-      <a class="contact-big" href="mailto:you@example.com">
-        <span>Let's talk</span><span class="contact-arrow" aria-hidden="true">→</span>
-      </a>
       <p class="contact-email mono">
-        <a href="mailto:you@example.com">you@example.com</a>
-        <button class="copy-btn mono" type="button" data-copy="you@example.com">Copy</button>
+        <a href="mailto:mali4@andrew.cmu.edu">mali4@andrew.cmu.edu</a>
+        <button class="copy-btn mono" type="button" data-copy="mali4@andrew.cmu.edu">Copy</button>
       </p>
 
       <ul class="socials mono">
-        <li><a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a></li>
-        <li><a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></li>
+        <li><a href="https://github.com/MBA009" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/bilal-ali-aa751a26b" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="MuhammadBilalAli_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></li>
       </ul>
     </section>
   </main>

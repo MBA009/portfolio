@@ -263,7 +263,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .skills { grid-column: 1 / -1; border-top: 1px solid var(--line-soft); padding-top: 24px; }
 .skills h3 { color: var(--muted); font-weight: 400; margin-bottom: 16px; }
-.skill-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-transform: none; font-size: 13px; line-height: 1.7; }
+.skill-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-transform: none; font-size: 13px; line-height: 1.7; }
 .skill-cols span { display: block; text-transform: uppercase; color: var(--muted); font-size: 11px; margin-bottom: 6px; }
 
 /* ---------- Experience ---------- */
@@ -279,6 +279,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .exp-main h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 600; letter-spacing: -.02em; margin-bottom: 6px; }
 .exp-main .at { font-weight: 400; color: var(--muted); }
 .exp-main p { color: var(--muted); max-width: 60ch; }
+.exp-main .exp-tags { margin-top: 12px; font-size: 11px; }
+.exp-points { display: grid; gap: 8px; max-width: 68ch; color: var(--muted); }
+.exp-points li { position: relative; padding-left: 20px; }
+.exp-points li::before { content: "—"; position: absolute; left: 0; color: var(--fg); }
+
+.exp-group { color: var(--muted); font-weight: 400; margin: 40px 0 0; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); }
+.exp-group:first-of-type { margin-top: 24px; }
 
 .resume-link {
   display: inline-block; margin-top: 32px;
@@ -353,6 +360,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    Responsive
    ========================================================= */
 @media (max-width: 960px) {
+  .skill-cols { grid-template-columns: repeat(2, 1fr); }
   .work-row { grid-template-columns: 40px 1fr auto 24px; gap: 8px 16px; }
   .w-desc { grid-column: 2 / -1; grid-row: 2; font-size: 14px; }
   .w-tags { grid-column: 2 / -1; grid-row: 3; }
@@ -602,4 +610,5 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .gallery { grid-template-columns: 1fr; gap: 32px; }
   .gallery-phone { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
   .prose { font-size: 17px; }
+  .tbl td:first-child { white-space: normal; }
 }

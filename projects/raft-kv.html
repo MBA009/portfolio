@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raft KV Store — Bilal Ali</title>
+  <meta name="description" content="A fault-tolerant key-value store in Go, replicated with the Raft consensus algorithm, plus a peer-to-peer DHT file-sharing system." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <!-- Course projects: the code is intentionally not published (course plagiarism policy).
+       The page describes the design; the code is offered on request. -->
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 006 / 006</p>
+      <h1 class="p-title">Raft KV Store</h1>
+      <p class="p-lede">
+        A fault-tolerant key-value store in Go, replicated across servers with
+        the Raft consensus algorithm. It keeps serving reads and writes as long
+        as a majority of servers are up and can reach each other.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2024</dd></div>
+        <div><dt>Type</dt><dd>Distributed systems</dd></div>
+        <div><dt>Built with</dt><dd>Go</dd></div>
+        <div><dt>Context</dt><dd>CS 582 Distributed Systems, LUMS</dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="mailto:mali4@andrew.cmu.edu?subject=Raft%20KV%20Store%20code">Request the code ↗</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/raft-kv/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Overview</h2>
+      <div>
+        <div class="prose">
+          <p>
+            I built a Raft library from scratch (leader election, log
+            replication and crash recovery), then built a replicated key-value
+            service on top of it that supports <code>Get</code>,
+            <code>Put</code> and <code>Append</code>.
+          </p>
+          <p>
+            The servers never talk to each other directly. Every operation,
+            reads included, goes through the Raft log, so every replica applies
+            the same operations in the same order. Because reads also go
+            through the log, a leader that has been cut off from the majority
+            can never serve stale data.
+          </p>
+        </div>
+        <div class="stats">
+          <div><span class="stat-num">4/4</span><span class="stat-label">Test scenarios passed</span></div>
+          <div><span class="stat-num">~1.1k</span><span class="stat-label">Lines of Go</span></div>
+          <div><span class="stat-num">100ms</span><span class="stat-label">Heartbeat interval</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Request path</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Submit</strong><p>A client sends the operation to any server and retries elsewhere if it isn't the leader</p></li>
+          <li><span class="step">02</span><strong>Append</strong><p>The leader adds the operation to its log</p></li>
+          <li><span class="step">03</span><strong>Replicate</strong><p>AppendEntries RPCs carry new entries to followers</p></li>
+          <li><span class="step">04</span><strong>Commit</strong><p>Once a majority has the entry, it is committed</p></li>
+          <li><span class="step">05</span><strong>Apply</strong><p>Every replica applies it in log order, skipping duplicates</p></li>
+          <li><span class="step">06</span><strong>Reply</strong><p>The waiting handler is notified and responds to the client</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Consensus layer</h2>
+      <ul class="p-list">
+        <li><div><strong>Leader election</strong><p>Randomized timeouts (0.5–1.5 s) avoid split votes, and nodes only vote for candidates whose log is at least as up to date as their own.</p></div></li>
+        <li><div><strong>Log replication</strong><p>Followers check the previous index and term before accepting entries and truncate any conflicting suffix. The leader backs off <code>nextIndex</code> until the logs match.</p></div></li>
+        <li><div><strong>Commit rule</strong><p>The leader advances its commit index once a majority of <code>matchIndex</code> values reach an entry.</p></div></li>
+        <li><div><strong>Crash recovery</strong><p>The current term, vote and log are persisted and restored when a node restarts.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Key-value layer</h2>
+      <ul class="p-list">
+        <li><div><strong>Exactly-once operations</strong><p>Each client carries a random ID and a sequence number, so a request retried after a leader change is recognised and never applied twice.</p></div></li>
+        <li><div><strong>No stale reads</strong><p><code>Get</code> goes through the log like any write, so only a leader backed by a majority can answer it.</p></div></li>
+        <li><div><strong>Leader discovery</strong><p>Clients try servers from a random starting point with back-off until a leader accepts the request.</p></div></li>
+        <li><div><strong>No deadlocks</strong><p>A dedicated goroutine drains Raft's apply channel, while RPC handlers wait on per-index channels with a timeout.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Testing</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Scenario</th><th>Network</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>One client</td><td>Reliable</td><td><span class="status done">Passed</span></td></tr>
+            <tr><td>Concurrent clients</td><td>Reliable</td><td><span class="status done">Passed</span></td></tr>
+            <tr><td>Multiple clients</td><td>Unreliable</td><td><span class="status done">Passed</span></td></tr>
+            <tr><td>Concurrent appends, same key</td><td>Unreliable</td><td><span class="status done">Passed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Also built</h2>
+      <div>
+        <div class="prose">
+          <p>
+            <strong>Peer-to-peer file sharing on a DHT.</strong> For CS 382
+            Network-Centric Computing (2023), I built a distributed hash table
+            in Python over raw TCP sockets. Files are spread across peers with
+            consistent hashing, and the system survives nodes leaving or
+            crashing.
+          </p>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>Consistent hashing</strong><p>Nodes and file names are hashed onto a ring of 2<sup>16</sup> IDs; each file belongs to the next node clockwise.</p></div></li>
+          <li><div><strong>Join and leave</strong><p>New nodes find their place by forwarding lookups around the ring. A leaving node hands its files to its successor and links its neighbours together.</p></div></li>
+          <li><div><strong>Replication</strong><p>Each node keeps a backup of its predecessor's files.</p></div></li>
+          <li><div><strong>Failure recovery</strong><p>Nodes ping their successor every 0.5 s and track their successor's successor, so a crashed node is bypassed and its files are restored from the backup.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>07</span>Stack</h2>
+      <ul class="chips">
+        <li>Go</li><li>Goroutines &amp; channels</li><li>RPC</li><li>gob encoding</li><li>Python</li><li>TCP sockets</li><li>Consistent hashing</li>
+      </ul>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>08</span>Gallery</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/raft-kv/01">
+          <div class="media-frame"></div><figcaption data-n="01">Test run output</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/raft-kv/02">
+          <div class="media-frame"></div><figcaption data-n="02">Architecture diagram</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="second-brain.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Second Brain</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
