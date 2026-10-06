@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LINDDUN Threat Modeler — Bilal Ali</title>
+  <meta name="description" content="RAG-powered automated privacy threat modeling with the LINDDUN framework." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 005 / 005</p>
+      <h1 class="p-title">LINDDUN Threat Modeler</h1>
+      <p class="p-lede">
+        Describe a system and get back a privacy threat report covering all
+        seven LINDDUN categories, with severity scores, regulatory citations
+        and concrete mitigations.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Type</dt><dd>Privacy / AI</dd></div>
+        <div><dt>Built with</dt><dd>Python, FastAPI, Claude</dd></div>
+        <div><dt>Source</dt><dd><a href="https://github.com/MBA009/linddun-threat-modeler" target="_blank" rel="noopener">MBA009/linddun-threat-modeler</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="https://github.com/MBA009/linddun-threat-modeler" target="_blank" rel="noopener">View on GitHub ↗</a>
+        <a class="btn" href="https://linddun.org" target="_blank" rel="noopener">About LINDDUN ↗</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/linddun/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Overview</h2>
+      <div class="prose">
+        <p>
+          LINDDUN is a privacy threat modeling framework, the privacy
+          counterpart to STRIDE. Doing it by hand means walking every element of
+          a data flow diagram through seven threat categories. This tool
+          automates that pass with retrieval-augmented generation over the
+          LINDDUN methodology and the regulations a system is checked against.
+        </p>
+        <p>
+          The knowledge base is built from official LINDDUN material (threat
+          trees, LINDDUN GO and PRO), GDPR articles, COPPA, CCPA and the NIST
+          Privacy Framework. The whole pipeline is also exposed as an MCP
+          server, so Claude Desktop can run an analysis mid-conversation.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>How it works</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Bootstrap</strong><p>Embed LINDDUN, GDPR, COPPA, CCPA and NIST sources</p></li>
+          <li><span class="step">02</span><strong>Describe</strong><p>Plain text, DFD elements, a guided form or a DFD image</p></li>
+          <li><span class="step">03</span><strong>Retrieve</strong><p>Hybrid RAG search for each category</p></li>
+          <li><span class="step">04</span><strong>Analyze</strong><p>Claude generates threats category by category</p></li>
+          <li><span class="step">05</span><strong>Report</strong><p>Severity, risk score, citation and mitigation, exportable as JSON</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Categories</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Code</th><th>Category</th><th>Threat</th></tr></thead>
+          <tbody>
+            <tr><td>L</td><td>Linking</td><td>Combining data to track individuals without identifying them</td></tr>
+            <tr><td>I</td><td>Identifying</td><td>De-anonymizing individuals from seemingly anonymous data</td></tr>
+            <tr><td>NR</td><td>Non-repudiation</td><td>Being unable to plausibly deny actions or data contributions</td></tr>
+            <tr><td>D</td><td>Detecting</td><td>Inferring sensitive attributes from observable behavior</td></tr>
+            <tr><td>DD</td><td>Data disclosure</td><td>Unauthorized access to or leakage of private data</td></tr>
+            <tr><td>U</td><td>Unawareness</td><td>Users not knowing about collection, processing or sharing</td></tr>
+            <tr><td>NC</td><td>Non-compliance</td><td>Violating GDPR, COPPA, CCPA or other regulations</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Output</h2>
+      <div>
+        <ul class="p-list">
+          <li><div><strong>Severity summary</strong><p>Threat counts by Critical, High, Medium and Low.</p></div></li>
+          <li><div><strong>Filterable threat table</strong><p>Filter by category or severity; each card expands to the full description, mitigation and likelihood × impact score.</p></div></li>
+          <li><div><strong>Regulatory citations</strong><p>Each threat is tied to a specific article, e.g. GDPR Art. 5(1)(b).</p></div></li>
+          <li><div><strong>MCP tools</strong><p><code>analyze_privacy_threats</code>, <code>get_linddun_info</code> and <code>search_linddun_kb</code> for Claude Desktop.</p></div></li>
+        </ul>
+        <pre class="code"><code>{
+  "threat_id":           "L-001",
+  "category":            "Linking",
+  "affected_element":    "User Profile Service",
+  "severity":            "High",
+  "likelihood":          4,
+  "impact":              5,
+  "risk_score":          20,
+  "mitigation":          "Apply differential privacy to analytics aggregates; rotate device tokens...",
+  "regulatory_citation": "GDPR Art. 5(1)(b) — purpose limitation"
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Stack</h2>
+      <ul class="chips">
+        <li>Python</li><li>FastAPI</li><li>Anthropic Claude</li><li>Hybrid RAG</li><li>MCP SDK</li><li>HTML / JS</li>
+      </ul>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>06</span>Gallery</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/linddun/01">
+          <div class="media-frame"></div><figcaption data-n="01">System input: DFD elements</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/linddun/02">
+          <div class="media-frame"></div><figcaption data-n="02">Threat report summary</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/linddun/03">
+          <div class="media-frame"></div><figcaption data-n="03">Expanded threat card</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/linddun/04">
+          <div class="media-frame"></div><figcaption data-n="04">Demo</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="second-brain.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Second Brain</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

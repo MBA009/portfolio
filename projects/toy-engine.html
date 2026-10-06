@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toy Engine — Bilal Ali</title>
+  <meta name="description" content="A game engine built from scratch in C++: software rasterizer, Vulkan renderer, ECS, editor, asset pipeline and AI." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 004 / 005</p>
+      <h1 class="p-title">Toy Engine</h1>
+      <p class="p-lede">
+        A small game engine written from scratch in C++, built one layer at a
+        time: software rasterizer, Vulkan renderer, ECS, editor, asset
+        pipeline and AI.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Type</dt><dd>Engine / Graphics</dd></div>
+        <div><dt>Built with</dt><dd>C++17, CMake, Vulkan</dd></div>
+        <div><dt>Status</dt><dd><span class="status wip">In progress</span></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="https://github.com/MBA009/toy-engine" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/toy-engine/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Overview</h2>
+      <div class="prose">
+        <p>
+          Each phase mirrors a layer of a production engine like Unity, Unreal
+          or Godot, built up from first principles so the reasoning behind each
+          layer is understood, not just used. The goal is one cohesive demo
+          where every system works together, not a set of disconnected proofs
+          of concept.
+        </p>
+        <p>
+          Rendering starts on the CPU: a software rasterizer that handles the
+          transform chain, rasterization, depth testing and perspective-correct
+          interpolation before a graphics API abstracts any of it away.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Architecture</h2>
+      <ol class="layers">
+        <li><strong>In-engine editor</strong><span>ImGui · gizmos · inspector</span></li>
+        <li><strong>AI</strong><span>Recast/Detour navmesh · behavior trees</span></li>
+        <li><strong>Asset pipeline</strong><span>glTF · textures · hot-reload</span></li>
+        <li><strong>Entity Component System</strong><span>Data-oriented · benchmarked</span></li>
+        <li><strong>GPU renderer</strong><span>Vulkan · shaders · lighting</span></li>
+        <li><strong>Software rasterizer</strong><span>CPU · the foundation</span></li>
+      </ol>
+    </section>
+
+    <!-- Update the status classes as phases complete: done / wip / todo -->
+    <section class="p-block">
+      <h2><span>03</span>Roadmap</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Phase</th><th>Focus</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>00</td><td>Project setup and windowing (GLFW)</td><td><span class="status done">Done</span></td></tr>
+            <tr><td>01</td><td>Software rasterizer</td><td><span class="status wip">In progress</span></td></tr>
+            <tr><td>02</td><td>GPU renderer (Vulkan)</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>03</td><td>Data-oriented ECS and OOP benchmark</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>04</td><td>Debug tooling (ImGui overlay)</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>05</td><td>Editor: picking, gizmos, inspector</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>06</td><td>Asset pipeline: glTF import, hot-reload</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>07</td><td>AI: navmesh pathfinding, behavior trees</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>08</td><td>Full integration pass</td><td><span class="status todo">Planned</span></td></tr>
+            <tr><td>09</td><td>Demo video and docs</td><td><span class="status todo">Planned</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Key decisions</h2>
+      <ul class="p-list">
+        <li><div><strong>Software rasterizer before the GPU</strong><p>Building the pipeline on the CPU first forces a real understanding of the math before an API hides it.</p></div></li>
+        <li><div><strong>Vulkan over OpenGL or DirectX</strong><p>Its explicitness means GPU synchronization has to be understood, not left to the driver.</p></div></li>
+        <li><div><strong>Hand-rolled ECS</strong><p>Components live in contiguous arrays and will be benchmarked against a naive OOP scene graph at 1k, 10k and 100k entities.</p></div></li>
+        <li><div><strong>Recast and Detour for navigation</strong><p>Industry-standard libraries, chosen to practise integrating production tooling correctly.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Stack</h2>
+      <ul class="chips">
+        <li>C++17</li><li>CMake</li><li>Ninja</li><li>GLFW</li><li>Vulkan</li><li>Dear ImGui</li>
+        <li>ImGuizmo</li><li>cgltf</li><li>stb_image</li><li>Recast &amp; Detour</li><li>nlohmann/json</li>
+      </ul>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>06</span>Gallery</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/toy-engine/01">
+          <div class="media-frame"></div><figcaption data-n="01">Software rasterizer output</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/toy-engine/02">
+          <div class="media-frame"></div><figcaption data-n="02">Depth buffer view</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/toy-engine/03">
+          <div class="media-frame"></div><figcaption data-n="03">Editor</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/toy-engine/04">
+          <div class="media-frame"></div><figcaption data-n="04">Demo</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="linddun.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>LINDDUN Threat Modeler</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

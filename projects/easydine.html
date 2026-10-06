@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Easy Dine — Bilal Ali</title>
+  <meta name="description" content="An iOS app for recipes, weekly meal plans and priced grocery lists." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 003 / 005</p>
+      <h1 class="p-title">Easy Dine</h1>
+      <p class="p-lede">
+        An iOS & Google play store app for recipes, weekly meal plans and grocery lists that
+        price themselves out.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Type</dt><dd>Android & iOS</dd></div>
+        <!-- TODO: fill in your stack, e.g. Swift, SwiftUI, Firebase -->
+        <div><dt>Platform</dt><dd>iOS · App Store & Android · Play Store</dd></div>
+        <div><dt>Website</dt><dd><a href="https://easydine.org" target="_blank" rel="noopener">easydine.org</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="https://easydine.org" target="_blank" rel="noopener">Visit easydine.org ↗</a>
+        <!-- <a class="btn" href="APP_STORE_URL" target="_blank" rel="noopener">App Store ↗</a> -->
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/easydine/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Overview</h2>
+      <div>
+        <div class="prose">
+          <p>
+            Easy Dine covers the whole loop from "what's for dinner?" to the
+            shopping list. Browse a recipe library personalized to your goals,
+            or search by whatever is already in your fridge. Every recipe comes
+            with ingredients, equipment, step-by-step instructions, nutrition
+            and an estimated cost for the dish.
+          </p>
+          <p>
+            Plan the week by dragging recipes onto days, see each day's calories
+            and cost at a glance, then generate one combined grocery list with
+            an estimated price for every item.
+          </p>
+        </div>
+        <div class="stats">
+          <div><span class="stat-num">15</span><span class="stat-label">Languages</span></div>
+          <div><span class="stat-num">9</span><span class="stat-label">Color themes</span></div>
+          <div><span class="stat-num">2</span><span class="stat-label">AI Pro tools</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Features</h2>
+      <ul class="p-list">
+        <li><div><strong>Personalized recipe feed</strong><p>A full library with suggestions built around what you're trying to eat.</p></div></li>
+        <li><div><strong>Search by ingredient</strong><p>Type what you have on hand and find recipes that use it.</p></div></li>
+        <li><div><strong>Full breakdowns</strong><p>Ingredients, equipment, steps, nutrition and an estimated cost per dish.</p></div></li>
+        <li><div><strong>Weekly planner</strong><p>Drag recipes onto days with daily calorie and cost totals.</p></div></li>
+        <li><div><strong>Priced grocery list</strong><p>One combined list from your plan, with an estimated price per item.</p></div></li>
+        <li><div><strong>Community recipes</strong><p>Publish your own recipes under your name for anyone to find.</p></div></li>
+        <li><div><strong>Reel to recipe (Pro)</strong><p>Paste an Instagram or YouTube link, or upload a clip, and the app drafts the title, ingredients and steps.</p></div></li>
+        <li><div><strong>Recipe remix (Pro)</strong><p>Ask for lower-calorie, gluten-free or anything else, and it rewrites the recipe for you to review.</p></div></li>
+      </ul>
+    </section>
+
+    <!-- Optional: add a "How it's built" / "My role" section here, copying a .p-block above. -->
+
+    <!-- Phone screenshots: the .gallery-phone layout shows four portrait images per row. -->
+    <section class="p-block" data-media-section>
+      <h2><span>03</span>Gallery</h2>
+      <div class="gallery gallery-phone">
+        <figure class="media" data-media="../assets/projects/easydine/01">
+          <div class="media-frame"></div><figcaption data-n="01">Recipe feed</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/easydine/02">
+          <div class="media-frame"></div><figcaption data-n="02">Recipe breakdown</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/easydine/03">
+          <div class="media-frame"></div><figcaption data-n="03">Weekly planner</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/easydine/04">
+          <div class="media-frame"></div><figcaption data-n="04">Priced grocery list</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="toy-engine.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Toy Engine</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

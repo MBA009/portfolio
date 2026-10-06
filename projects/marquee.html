@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MARQUEE — Bilal Ali</title>
+  <meta name="description" content="An end-to-end ML system that predicts a film's worldwide box-office gross from scraped public data." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 002 / 005</p>
+      <h1 class="p-title">MARQUEE</h1>
+      <p class="p-lede">
+        Type in a movie title and MARQUEE predicts its worldwide box-office
+        gross. It scrapes its own features from five public sources, so it
+        needs no API keys.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Type</dt><dd>Machine learning</dd></div>
+        <div><dt>Built with</dt><dd>Python, scikit-learn, FastAPI</dd></div>
+        <div><dt>Source</dt><dd><a href="https://github.com/MBA009/MARQUEE" target="_blank" rel="noopener">MBA009/MARQUEE</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="https://github.com/MBA009/MARQUEE" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/marquee/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Overview</h2>
+      <div>
+        <div class="prose">
+          <p>
+            MARQUEE is an end-to-end ML system: a scraper, a model and a web UI.
+            You enter a title, review the features it found and fill in anything
+            missing, then run the prediction to get an estimated gross, a
+            confidence interval and a chart of which features pushed the number
+            up or down.
+          </p>
+          <p>
+            The model is a gradient-boosted regressor (500 trees, depth 4)
+            trained on a log-transformed target. It is currently trained on
+            6,000 synthetic films.
+          </p>
+        </div>
+        <div class="stats">
+          <div><span class="stat-num">15</span><span class="stat-label">Model features</span></div>
+          <div><span class="stat-num">5</span><span class="stat-label">Data sources</span></div>
+          <div><span class="stat-num">0.66</span><span class="stat-label">R² (approx.)</span></div>
+          <div><span class="stat-num">39%</span><span class="stat-label">Median abs. % error</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>How it works</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Search</strong><p>Enter a movie title in the browser</p></li>
+          <li><span class="step">02</span><strong>Scrape</strong><p>Five public sources, no API keys</p></li>
+          <li><span class="step">03</span><strong>Review</strong><p>Check the values; gaps are flagged as estimated</p></li>
+          <li><span class="step">04</span><strong>Predict</strong><p>Gradient boosting on 15 features</p></li>
+          <li><span class="step">05</span><strong>Explain</strong><p>Gross, confidence interval and feature contributions</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Data sources</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Source</th><th>What it provides</th></tr></thead>
+          <tbody>
+            <tr><td>Wikipedia API</td><td>Budget, gross, runtime, genre, director, cast, MPAA rating, release date, franchise or sequel</td></tr>
+            <tr><td>The Numbers</td><td>Budget cross-check and opening screen count</td></tr>
+            <tr><td>Metacritic</td><td>Metascore, used as a proxy for critic reception</td></tr>
+            <tr><td>YouTube</td><td>Official trailer view count, used to estimate social buzz</td></tr>
+            <tr><td>Filmographies</td><td>Historical average gross for the director and lead actors</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Robustness</h2>
+      <ul class="p-list">
+        <li><div><strong>Fails soft</strong><p>Every field is scraped independently, so one broken source never fails a search.</p></div></li>
+        <li><div><strong>Polite scraping</strong><p>Each request gets two retries with back-off delays.</p></div></li>
+        <li><div><strong>Always predicts</strong><p>Missing features are median-imputed and marked "ESTIMATED" in the UI.</p></div></li>
+        <li><div><strong>Fast restarts</strong><p>The first launch trains the model in about 15 seconds; later starts load the cached bundle.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Stack</h2>
+      <ul class="chips">
+        <li>Python</li><li>scikit-learn</li><li>FastAPI</li><li>Web scraping</li><li>MediaWiki API</li><li>HTML / JS</li>
+      </ul>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>06</span>Gallery</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/marquee/01">
+          <div class="media-frame"></div><figcaption data-n="01">Searching for a title</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/marquee/02">
+          <div class="media-frame"></div><figcaption data-n="02">Reviewing the scraped features</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/marquee/03">
+          <div class="media-frame"></div><figcaption data-n="03">Prediction with feature contributions</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/marquee/04">
+          <div class="media-frame"></div><figcaption data-n="04">Demo</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="easydine.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Easy Dine</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

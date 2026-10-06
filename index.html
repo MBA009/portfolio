@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Bilal Ali — Portfolio</title>
+  <meta name="description" content="Portfolio of Muhammad Bilal Ali." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Apply saved theme before paint to avoid a flash -->
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a href="#top" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <p class="eyebrow mono">Portfolio — <span id="yearNow">2026</span></p>
+      <h1 class="hero-name">
+        <span class="line">Bilal</span>
+        <span class="line">Ali</span>
+      </h1>
+
+      <div class="hero-grid">
+        <p class="hero-statement">
+          Machine Learning ·
+          Software Engineering ·
+          Privacy & AI Governance
+        </p>
+        <dl class="hero-meta mono">
+          <div><dt>Based in</dt><dd>Pittsburgh, US</dd></div>
+          <div><dt>Currently</dt><dd>Student @ Carnegie Mellon University</dd></div>
+          <div><dt>Status</dt><dd><span class="dot" aria-hidden="true"></span>Open to opportunities</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="section-head">
+        <span class="section-index mono">01</span>
+        <h2>Selected Work</h2>
+        <span class="section-count mono">(05)</span>
+      </div>
+
+      <ol class="work-list">
+        <!-- Each row links to its page in projects/. Copy a page there to add a new project. -->
+        <li>
+          <a class="work-row reveal" href="projects/second-brain.html">
+            <span class="w-idx mono">001</span>
+            <span class="w-title">Second Brain</span>
+            <span class="w-desc">Personal RAG knowledge base: chat with your PDFs, notes and videos, also available to Claude over MCP.</span>
+            <span class="w-tags mono">Python · RAG · MCP</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/marquee.html">
+            <span class="w-idx mono">002</span>
+            <span class="w-title">MARQUEE</span>
+            <span class="w-desc">Predicts a film's worldwide box office from data it scrapes itself, with no API keys.</span>
+            <span class="w-tags mono">Python · ML</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/easydine.html">
+            <span class="w-idx mono">003</span>
+            <span class="w-title">Easy Dine</span>
+            <span class="w-desc">iOS app for recipes, weekly meal plans and grocery lists with real price estimates.</span>
+            <span class="w-tags mono">iOS · Product</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/toy-engine.html">
+            <span class="w-idx mono">004</span>
+            <span class="w-title">Toy Engine</span>
+            <span class="w-desc">Game engine in C++, from a software rasterizer up to Vulkan, ECS and an editor.</span>
+            <span class="w-tags mono">C++ · Graphics</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/linddun.html">
+            <span class="w-idx mono">005</span>
+            <span class="w-title">LINDDUN Threat Modeler</span>
+            <span class="w-desc">Automated privacy threat modeling with RAG, citing GDPR, COPPA and CCPA.</span>
+            <span class="w-tags mono">Python · Privacy</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="section-index mono">02</span>
+        <h2>About</h2>
+      </div>
+
+      <div class="about-grid">
+        <p class="about-lead reveal">
+          I like problems that sit between theory and practice — where the
+          elegant answer also has to ship.
+        </p>
+        <div class="about-body reveal">
+          <p>
+            Write two or three short paragraphs about yourself here: what you
+            study or work on, what you're curious about, and what kind of work
+            you're looking for next.
+          </p>
+          <p>
+            Outside of code, mention a thing or two that makes you a person —
+            running, film photography, chess, whatever is true.
+          </p>
+        </div>
+
+        <div class="skills reveal">
+          <h3 class="mono">Toolkit</h3>
+          <ul class="skill-cols mono">
+            <li><span>Languages</span>Python, TypeScript, C/C++, Go, SQL</li>
+            <li><span>Frameworks</span>React, Node, PyTorch, FastAPI</li>
+            <li><span>Tools</span>Git, Docker, Linux, AWS, Postgres</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="section-head">
+        <span class="section-index mono">03</span>
+        <h2>Experience</h2>
+      </div>
+
+      <ul class="exp-list">
+        <li class="exp-row reveal">
+          <span class="exp-date mono">2026 — Now</span>
+          <div class="exp-main">
+            <h3>Role Title <span class="at">@ Company</span></h3>
+            <p>One or two lines on what you built and the impact it had.</p>
+          </div>
+          <span class="exp-type mono">Internship</span>
+        </li>
+        <li class="exp-row reveal">
+          <span class="exp-date mono">2025</span>
+          <div class="exp-main">
+            <h3>Teaching Assistant <span class="at">@ University</span></h3>
+            <p>Course name — led recitations, held office hours, wrote autograders.</p>
+          </div>
+          <span class="exp-type mono">Part-time</span>
+        </li>
+        <li class="exp-row reveal">
+          <span class="exp-date mono">2024 — 2028</span>
+          <div class="exp-main">
+            <h3>B.S. Computer Science <span class="at">@ University</span></h3>
+            <p>Relevant coursework, honors, or concentration.</p>
+          </div>
+          <span class="exp-type mono">Education</span>
+        </li>
+      </ul>
+
+      <a class="resume-link mono" href="resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) ↓</a>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="section-head">
+        <span class="section-index mono">04</span>
+        <h2>Contact</h2>
+      </div>
+
+      <p class="contact-kicker mono">Have a project, role, or idea?</p>
+      <a class="contact-big" href="mailto:you@example.com">
+        <span>Let's talk</span><span class="contact-arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="contact-email mono">
+        <a href="mailto:you@example.com">you@example.com</a>
+        <button class="copy-btn mono" type="button" data-copy="you@example.com">Copy</button>
+      </p>
+
+      <ul class="socials mono">
+        <li><a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
