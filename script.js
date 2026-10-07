@@ -8,9 +8,7 @@ const $ = (id) => document.getElementById(id);
 const root = document.documentElement;
 
 function currentTheme() {
-  const set = root.getAttribute("data-theme");
-  if (set) return set;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return root.getAttribute("data-theme") === "light" ? "light" : "dark";
 }
 
 $("themeToggle")?.addEventListener("click", () => {
@@ -140,8 +138,8 @@ async function loadFigure(fig) {
     if (el.tagName === "VIDEO") {
       el.controls = true;
       el.playsInline = true;
+      el.muted = true; // start silent; viewers can unmute from the controls
       if ("autoplay" in fig.dataset) {
-        el.muted = true;
         el.loop = true;
         el.autoplay = true;
       }
