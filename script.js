@@ -149,6 +149,11 @@ async function loadFigure(fig) {
       el.alt = caption;
       el.addEventListener("click", () => openLightbox(el.src, el.alt));
     }
+    // Portrait media (e.g. phone recordings) is centered at a capped height
+    const w = el.videoWidth || el.naturalWidth;
+    const h = el.videoHeight || el.naturalHeight;
+    if (h > w) fig.classList.add("media-portrait");
+
     frame.replaceChildren(el);
     fig.classList.add("media-ready");
     return true;
