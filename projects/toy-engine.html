@@ -64,16 +64,7 @@
       <h2><span>01</span>Overview</h2>
       <div class="prose">
         <p>
-          Each phase mirrors a layer of a production engine like Unity, Unreal
-          or Godot, built up from first principles so the reasoning behind each
-          layer is understood, not just used. The goal is one cohesive demo
-          where every system works together, not a set of disconnected proofs
-          of concept.
-        </p>
-        <p>
-          Rendering starts on the CPU: a software rasterizer that handles the
-          transform chain, rasterization, depth testing and perspective-correct
-          interpolation before a graphics API abstracts any of it away.
+          Toy Engine is a small game engine, similar to Unity, I built from scratch in C++.It was built in layers, starting with a CPU software rasterizer so the graphics pipeline is understood before an API hides it. On top of that came a Vulkan renderer: instanced drawing, mip-mapped sRGB textures, point lighting, and shader hot reload. A hand-rolled sparse-set ECS drives the whole world. It is benchmarked against a conventional virtual-call OOP scene and is about 1.85x faster at a million objects. It’s roughly even at a thousand, which is what a cache-locality effect should look like. GPU instancing then moved the bottleneck from draw calls into the engine’s own ECS pass.
         </p>
       </div>
     </section>
