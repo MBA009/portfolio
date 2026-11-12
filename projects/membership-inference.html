@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Membership Inference on GPT-2 — Bilal Ali</title>
+  <meta name="description" content="A shadow-model z-score membership inference attack on LoRA fine-tuned GPT-2, reaching 0.96 AUC." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 010 / 010</p>
+      <h1 class="p-title">Membership Inference on GPT-2</h1>
+      <p class="p-lede">
+        Can you tell whether a sentence was in a language model's fine-tuning
+        data just by querying the model? Our attack compares a fine-tuned GPT-2
+        against ten shadow models and reaches an AUC of 0.96 on the held-out
+        test set, with no separate classifier.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2025</dd></div>
+        <div><dt>Type</dt><dd>Privacy attack / ML</dd></div>
+        <div><dt>With</dt><dd>CMU · Foundations of Privacy</dd></div>
+        <div><dt>Report</dt><dd><a href="../assets/projects/membership-inference/report.pdf" target="_blank" rel="noopener">PDF, 11 pages</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="../assets/projects/membership-inference/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+        <a class="btn" href="../assets/projects/membership-inference/report.pdf" download="BilalAli_Membership_Inference_Report.pdf">Download PDF ↓</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/membership-inference/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Question</h2>
+      <div class="prose">
+        <p>
+          A membership inference attack asks whether a specific record was used
+          to train a model. Models tend to memorize their training data, so a
+          successful attack can reveal that someone's health, financial or
+          personal text was in the training set, which is exactly the kind of
+          leak regulations like GDPR are meant to prevent.
+        </p>
+        <p>
+          Strong attacks like Shokri's shadow models and Carlini's LiRA need
+          extra classifiers or reference models on top of shadow training. We
+          asked whether simple statistics over a set of shadow models could
+          produce a strong membership signal on their own.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Method</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Shadow data</strong><p>10,000 cleaned WikiText-103 sentences per shadow model, each with a different seed</p></li>
+          <li><span class="step">02</span><strong>Shadow models</strong><p>10 GPT-2 LoRA models (r = 32, α = 64) trained with the target's fine-tuning setup</p></li>
+          <li><span class="step">03</span><strong>Features</strong><p>Average per-token cross-entropy loss and perplexity, from the target and every shadow</p></li>
+          <li><span class="step">04</span><strong>Score</strong><p>How far the target's loss falls below the shadow mean, in standard deviations, averaged over both features</p></li>
+          <li><span class="step">05</span><strong>Evaluate</strong><p>Continuous scores submitted to a Codabench leaderboard for AUC and TPR at 1% FPR</p></li>
+        </ol>
+        <ul class="chips">
+          <li>Membership inference</li><li>Shadow models</li><li>GPT-2</li><li>LoRA</li><li>PyTorch</li><li>Hugging Face PEFT</li><li>Codabench</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Findings</h2>
+      <div>
+        <div class="stats">
+          <div><span class="stat-num">0.96</span><span class="stat-label">AUC on the held-out test set</span></div>
+          <div><span class="stat-num">59%</span><span class="stat-label">True positives at 1% false positives</span></div>
+          <div><span class="stat-num">10</span><span class="stat-label">Shadow models</span></div>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>Fine-tuned models leak membership</strong><p>A LoRA fine-tuned GPT-2 gives members a clearly lower loss than the shadow models predict, so membership can be read straight off the model.</p></div></li>
+          <li><div><strong>More shadows, sharper signal</strong><p>Going from 6 to 10 shadow models raised the true positive rate at 1% false positives from 52.7% to 62.3% on the training set.</p></div></li>
+          <li><div><strong>No classifier needed</strong><p>The averaged z-score is the membership score, so there is no extra attack model to train or tune.</p></div></li>
+        </ul>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Set</th><th>Shadow models</th><th>AUC</th><th>TPR @ 1% FPR</th></tr></thead>
+            <tbody>
+              <tr><td>Train</td><td>10</td><td>0.955</td><td>62.3%</td></tr>
+              <tr><td>Validation</td><td>6</td><td>0.957</td><td>48.0%</td></tr>
+              <tr><td>Test (final)</td><td>10</td><td>0.964</td><td>59.2%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Takeaways</h2>
+      <ul class="p-list">
+        <li><div><strong>Teams fine-tuning on sensitive data</strong><p>A cheap attack like this works well against a LoRA fine-tune, so run one as a privacy audit before releasing the model.</p></div></li>
+        <li><div><strong>Anyone evaluating an attack</strong><p>Report the true positive rate at a low false positive rate, not just AUC. The validation AUC barely moved, but the low-FPR rate shows how many members can be identified with confidence.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Limitations &amp; ethics</h2>
+      <div class="prose">
+        <p>
+          Per-token loss is affected by how hard a sentence is: rare words have
+          high loss whether or not they were trained on, which blurs the signal.
+          Every extra feature or shadow model adds training cost, and we didn't
+          calibrate a decision threshold.
+        </p>
+        <p>
+          The attack ran only on models and data provided for the course
+          competition, plus public WikiText-103 text. No personal data was
+          involved.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Report</h2>
+      <div>
+        <div class="prose">
+          <p>
+            The full report, <em>Foundations of Privacy: Phase 3 Report</em>,
+            includes the derivation, ablations and ROC curves for every phase.
+            I wrote the abstract and related work, analyzed the results and
+            contributed to the code.
+          </p>
+          <p>Team: Aditi Balaji and Michael Stoneman.</p>
+        </div>
+        <div class="p-links mono">
+          <a class="btn btn-solid" href="../assets/projects/membership-inference/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+          <a class="btn" href="../assets/projects/membership-inference/report.pdf" download="BilalAli_Membership_Inference_Report.pdf">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>07</span>Figures</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/membership-inference/01">
+          <div class="media-frame"></div><figcaption data-n="01">Attack pipeline: target model vs. ten shadow models</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/membership-inference/02">
+          <div class="media-frame"></div><figcaption data-n="02">ROC curve on the training set (AUC 0.955)</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/membership-inference/03">
+          <div class="media-frame"></div><figcaption data-n="03">Score distribution for members vs. non-members</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="easydine.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Easy Dine</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

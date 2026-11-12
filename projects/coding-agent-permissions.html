@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Coding Agent Permissions — Bilal Ali</title>
+  <meta name="description" content="A lab study of how developers respond to AI coding agent permission prompts, and why prompt fatigue is a security risk." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 007 / 010</p>
+      <h1 class="p-title">AI Coding Agent Permissions</h1>
+      <p class="p-lede">
+        When an AI coding agent asks "May I install this?" twenty to forty times
+        a session, do developers still read the question? In a lab study with
+        10 CMU developers, they mostly stopped. Security-trained participants
+        were no more careful at the prompt either: they rely on sandboxes and
+        VMs to keep them safe.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Type</dt><dd>User study (IRB-approved)</dd></div>
+        <div><dt>With</dt><dd>CMU · Usable Privacy &amp; Security</dd></div>
+        <div><dt>Report</dt><dd><a href="../assets/projects/coding-agent-permissions/report.pdf" target="_blank" rel="noopener">PDF, 11 pages</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="../assets/projects/coding-agent-permissions/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+        <a class="btn" href="../assets/projects/coding-agent-permissions/report.pdf" download="BilalAli_Coding_Agent_Permissions_Report.pdf">Download PDF ↓</a>
+        <a class="btn" href="https://github.com/nargizh7/ai_agent_lab_study" target="_blank" rel="noopener">Study materials ↗</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/coding-agent-permissions/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Question</h2>
+      <div class="prose">
+        <p>
+          AI coding agents like Claude Code, Cursor and Copilot now edit files,
+          run shell commands, install packages and make network calls. The one
+          thing standing between that autonomy and the developer's machine is
+          the permission prompt: approve, deny, or allow always.
+        </p>
+        <p>
+          Prior work shows AI-generated code is often vulnerable and that agents
+          can be hijacked through prompt injection, but not how developers
+          actually make these approval decisions in the middle of real work. We
+          asked how developers evaluate the prompts, whether repeated prompts
+          wear down that scrutiny, and whether background changes the answer.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Method</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Screen</strong><p>21 survey respondents; 10 selected, balanced between security-focused and general engineers</p></li>
+          <li><span class="step">02</span><strong>Seed</strong><p>A Flask task manager with 5 functional bugs and 6 security vulnerabilities</p></li>
+          <li><span class="step">03</span><strong>Instrument</strong><p>CLAUDE.md and hooks that fire 20–40 prompts: packages, external services, sample data, folder access</p></li>
+          <li><span class="step">04</span><strong>Observe</strong><p>60-minute debugging session with screen recording and JSONL telemetry</p></li>
+          <li><span class="step">05</span><strong>Interview</strong><p>25-minute stimulated-recall interview, then thematic coding</p></li>
+        </ol>
+        <ul class="chips">
+          <li>Mixed methods</li><li>Lab study</li><li>Think-aloud</li><li>Thematic coding</li><li>Claude Code</li><li>Python hooks</li><li>Telemetry</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Findings</h2>
+      <div>
+        <div class="stats">
+          <div><span class="stat-num">10</span><span class="stat-label">Developers observed</span></div>
+          <div><span class="stat-num">20–40</span><span class="stat-label">Prompts per session</span></div>
+          <div><span class="stat-num">0%</span><span class="stat-label">Fast approvers who recalled what they approved</span></div>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>Fatigue sets in early</strong><p>In the longest session, replies shrank to a bare "yes" by turn 13 of 65, and that "yes" later approved installing discord.py into a Flask web app.</p></div></li>
+          <li><div><strong>Consent without memory</strong><p>One participant approved a security-testing package in three seconds, then said in the interview that they had never installed it.</p></div></li>
+          <li><div><strong>Experts offload vigilance</strong><p>Security-focused participants normally work in VMs, Docker or plan mode. On a lab machine they assumed was isolated, they clicked through faster. General engineers, with no such safeguards, were the ones who read prompts.</p></div></li>
+          <li><div><strong>Scope beats wording</strong><p>Participants approved anything that looked in scope for the project and only paused when a request clearly reached outside it.</p></div></li>
+          <li><div><strong>The agent pushed back on the study</strong><p>In some sessions Claude flagged the injected instructions as deceptive and refused the suspicious requests, while still following ordinary ones.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Recommendations</h2>
+      <ul class="p-list">
+        <li><div><strong>Risk-categorize prompts</strong><p>Show an in-scope file edit differently from a network call, a package install or access to .ssh. Identical prompts train identical answers.</p></div></li>
+        <li><div><strong>Make safeguards the default</strong><p>If sandboxing and plan mode are the real defense, users shouldn't have to know to turn them on.</p></div></li>
+        <li><div><strong>Summarize approvals after the session</strong><p>A session-end summary of everything approved gives developers a chance to catch what they waved through.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Limitations &amp; ethics</h2>
+      <div class="prose">
+        <p>
+          Ten master's students at one university is a small sample. Telemetry
+          was captured for only 4 of the 10 sessions, the lab machine changed
+          how cautious people were, and prompt frequency varied within each
+          session rather than between groups, so fatigue can't be fully
+          separated from order effects.
+        </p>
+        <p>
+          The study was approved by the CMU IRB. The injected instructions were
+          a partial deception, disclosed at debriefing; no one withdrew. Audio
+          was deleted after transcription and only de-identified transcripts
+          were kept. This page leaves out participant quotes and session IDs.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Report</h2>
+      <div>
+        <div class="prose">
+          <p>
+            The full report, <em>Privacy and Security Risks in AI Coding Agent
+            Workflows</em>, covers the study apparatus, all four hypotheses,
+            per-session telemetry and the interview protocol.
+          </p>
+          <p>Team: Nargiz Heybatova, Joohan Kim, Aditi Agni and Frank Du, supported by CMU CyLab.</p>
+        </div>
+        <div class="p-links mono">
+          <a class="btn btn-solid" href="../assets/projects/coding-agent-permissions/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+          <a class="btn" href="../assets/projects/coding-agent-permissions/report.pdf" download="BilalAli_Coding_Agent_Permissions_Report.pdf">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <a class="p-next" href="ai-privacy-labels.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>AI Privacy Labels</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

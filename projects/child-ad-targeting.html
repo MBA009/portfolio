@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ads on Kids' Google Accounts — Bilal Ali</title>
+  <meta name="description" content="An audit of whether Google's supervised child accounts prevent targeted and age-inappropriate ads, compared with an adult profile." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 009 / 010</p>
+      <h1 class="p-title">Ads on Kids' Google Accounts</h1>
+      <p class="p-lede">
+        Do Google's supervised child accounts really keep targeted and
+        age-inappropriate ads away from kids? We ran one adult and two child
+        profiles side by side. The child profiles saw only contextual ads, and
+        almost none when they searched for vaping or marijuana.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2025</dd></div>
+        <div><dt>Type</dt><dd>Privacy audit (COPPA)</dd></div>
+        <div><dt>With</dt><dd>CMU · Privacy Policy, Law &amp; Technology</dd></div>
+        <div><dt>Report</dt><dd><a href="../assets/projects/child-ad-targeting/report.pdf" target="_blank" rel="noopener">PDF, 6 pages</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="../assets/projects/child-ad-targeting/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+        <a class="btn" href="../assets/projects/child-ad-targeting/report.pdf" download="BilalAli_Child_Ad_Targeting_Report.pdf">Download PDF ↓</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/child-ad-targeting/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Question</h2>
+      <div class="prose">
+        <p>
+          Parents set up supervised Google accounts trusting that they shield
+          children from ad targeting. COPPA restricts collecting personal data
+          from children under 13 without parental consent, which rules out
+          profile-based ads but still allows contextual ones. Earlier studies
+          found trackers on about 90% of child-directed websites and targeted ads
+          on 27%.
+        </p>
+        <p>
+          We asked two questions. Do child profiles get any targeted ads beyond
+          what the search itself suggests? And how do the ads differ when a child
+          and an adult run the same "adult" searches?
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Method</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Set up</strong><p>Wiped Chrome data and created three accounts: adult A1, and children K1 and K2 (ages 11–12) through a verified parent account</p></li>
+          <li><span class="step">02</span><strong>Prime</strong><p>Two weeks of age-appropriate Google searches and YouTube viewing for each profile</p></li>
+          <li><span class="step">03</span><strong>Probe</strong><p>A1 and K1 ran 15 identical adult queries (vaping, marijuana); K1 and K2 shared 15 kid queries</p></li>
+          <li><span class="step">04</span><strong>Log</strong><p>100 entries per profile: advertiser, placement, stated reason and likely targeting factor</p></li>
+        </ol>
+        <ul class="chips">
+          <li>Controlled audit</li><li>Sock-puppet accounts</li><li>Google Search</li><li>YouTube</li><li>COPPA</li><li>Manual coding</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Findings</h2>
+      <div>
+        <div class="stats">
+          <div><span class="stat-num">3</span><span class="stat-label">Google profiles</span></div>
+          <div><span class="stat-num">1/15</span><span class="stat-label">Adult searches that showed a child an ad</span></div>
+          <div><span class="stat-num">100</span><span class="stat-label">Logged results per profile</span></div>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>Children get contextual ads, not behavioral ones</strong><p>Ads on both child profiles matched the search or video being viewed, such as toys and games, never a profile of the user.</p></div></li>
+          <li><div><strong>Adult searches go almost ad-free</strong><p>Across 15 adult queries, the child account saw one ad, and it had nothing to do with the query. The adult saw ads on about half.</p></div></li>
+          <li><div><strong>Child profiles stay blank</strong><p>Google's dashboard inferred the adult was single, high-income and not a parent. Both child dashboards stayed empty for the whole study.</p></div></li>
+          <li><div><strong>Visible safeguards</strong><p>Child searches carry an extra flag in the URL, incognito mode is disabled, and parents get an email 30 days before the child turns 13.</p></div></li>
+          <li><div><strong>Search and YouTube filter separately</strong><p>Some videos that Google Search showed the child were blocked when opened on YouTube, so the two systems aren't fully in sync.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Recommendations</h2>
+      <ul class="p-list">
+        <li><div><strong>Parents</strong><p>Supervised accounts do block targeting and most adult ads, but children still see ads and filtering isn't perfect. Keep supervising.</p></div></li>
+        <li><div><strong>Google</strong><p>Keep Search and YouTube filtering consistent, so results a child can't open aren't shown in the first place.</p></div></li>
+        <li><div><strong>Researchers</strong><p>Test adult categories outside Google's restricted-ads policy, such as alcohol or gambling, and add an adult profile that browses like a child to separate account age from behavior.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Limitations &amp; ethics</h2>
+      <div class="prose">
+        <p>
+          Ads were logged by hand, which limited scale. Google already restricts
+          tobacco and THC ads for everyone, so some of the child results may come
+          from that general policy rather than from the child protections. The
+          study covered only Google, over two weeks of priming and one week of
+          collection.
+        </p>
+        <p>
+          The profiles were fictional and used no real person's data. The child
+          accounts were created through Google's required parental process. We
+          only visited public sites. Account names and identifiers are left off
+          this page.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Report</h2>
+      <div>
+        <div class="prose">
+          <p>
+            The full report, <em>Investigating Ad Targeting Differences Between
+            Child and Adult Google Profiles</em>, covers the background on
+            targeting mechanisms, the full logging scheme and the stakeholder
+            analysis.
+          </p>
+          <p>Team: Aditi Balaji and Michael Stoneman.</p>
+        </div>
+        <div class="p-links mono">
+          <a class="btn btn-solid" href="../assets/projects/child-ad-targeting/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+          <a class="btn" href="../assets/projects/child-ad-targeting/report.pdf" download="BilalAli_Child_Ad_Targeting_Report.pdf">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <a class="p-next" href="membership-inference.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Membership Inference on GPT-2</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

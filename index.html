@@ -67,11 +67,16 @@
       <div class="section-head">
         <span class="section-index mono">01</span>
         <h2>Selected Work</h2>
-        <span class="section-count mono">(06)</span>
+        <span class="section-count mono">(10)</span>
       </div>
 
+      <!-- Each row links to its page in projects/. Copy a page there to add a new project.
+           Research pages: copy projects/_research-template.html, add the row under Research
+           and end its tags with "· Report". When adding a project, update the (10) count above,
+           the "Project 00X / 0YY" line on every page, and the "Next project" links (the last
+           page links back to easydine.html). -->
+      <h3 class="exp-group mono">Builds</h3>
       <ol class="work-list">
-        <!-- Each row links to its page in projects/. Copy a page there to add a new project. -->
         <li>
           <a class="work-row reveal" href="projects/easydine.html">
             <span class="w-idx mono">001</span>
@@ -133,6 +138,50 @@
           </a>
         </li>
       </ol>
+
+      <h3 class="exp-group mono">Research</h3>
+      <ol class="work-list">
+        <li>
+          <a class="work-row reveal" href="projects/coding-agent-permissions.html">
+            <span class="w-idx mono">007</span>
+            <span class="w-title">AI Coding Agent Permissions</span>
+            <span class="w-desc">Lab study of how developers handle AI coding agent permission prompts, and why prompt fatigue is a security risk.</span>
+            <span class="w-tags mono">User study · Report</span>
+            <span class="w-year mono">2026</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/ai-privacy-labels.html">
+            <span class="w-idx mono">008</span>
+            <span class="w-title">AI Privacy Labels</span>
+            <span class="w-desc">62-person experiment: short AI privacy labels are understood better, but don't change who uses the product.</span>
+            <span class="w-tags mono">Experiment · Report</span>
+            <span class="w-year mono">2025</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/child-ad-targeting.html">
+            <span class="w-idx mono">009</span>
+            <span class="w-title">Ads on Kids' Google Accounts</span>
+            <span class="w-desc">Audit of whether Google's child accounts block targeted and age-inappropriate ads under COPPA.</span>
+            <span class="w-tags mono">Privacy audit · Report</span>
+            <span class="w-year mono">2025</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row reveal" href="projects/membership-inference.html">
+            <span class="w-idx mono">010</span>
+            <span class="w-title">Membership Inference on GPT-2</span>
+            <span class="w-desc">Shadow-model attack that detects LoRA fine-tuning data in GPT-2 with 0.96 AUC.</span>
+            <span class="w-tags mono">ML privacy · Report</span>
+            <span class="w-year mono">2025</span>
+            <span class="w-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ol>
     </section>
 
     <!-- ============ ABOUT ============ -->
@@ -159,7 +208,7 @@
         <div class="skills reveal">
           <h3 class="mono">Toolkit</h3>
           <ul class="skill-cols mono">
-            <li><span>Languages &amp; Frameworks</span>Python, Java, C/C++, Go, SQL, JavaScript, React, Node.js, FastAPI, PyTorch, Hugging Face</li>
+            <li><span>Languages &amp; Frameworks</span>Python, Java, C/C++, Go, SQL, JavaScript, React, Node.js, FastAPI, PyTorch, Hugging Face, .NET</li>
             <li><span>Privacy &amp; Security</span>Threat modeling (LINDDUN Pro), differential privacy, membership inference, GDPR, CCPA, COPPA, ISO frameworks</li>
             <li><span>AI &amp; Data</span>LLM pipelines, AI agents (MCP), RAG, context engineering, LLM evaluation, Apache Spark, Power BI, Tableau</li>
             <li><span>Infrastructure</span>PostgreSQL, MongoDB, Qdrant, Docker, AWS, Git, Linux</li>
@@ -183,7 +232,7 @@
             <h3>Research Assistant <span class="at">@ Carnegie Mellon University, S3D</span></h3>
             <ul class="exp-points">
               <li>Built an LLM pipeline that finds privacy threats in system designs and source code using LINDDUN Pro, linking each one to the GDPR, CCPA or COPPA requirement it affects. Presented at IEEE ISoPE 2026.</li>
-              <li>Evaluated it against 99 expert-written threats from NIST SP 1800 on recall, precision and citation correctness, using ablation studies to trace errors to the model, retrieved context or prompts.</li>
+              <li>Evaluated it against expert analysis from NIST SP 1800 on recall, precision and citation correctness, using ablation studies to trace errors to the model, retrieved context or prompts.</li>
             </ul>
             <p class="exp-tags mono">LLM pipelines · Threat modeling · Python</p>
           </div>
@@ -228,7 +277,7 @@
           <span class="exp-date mono">Aug 2020 — Jul 2025</span>
           <div class="exp-main">
             <h3>B.S. Major in Computer Science, Minor in Economics <span class="at">@ LUMS</span></h3>
-            <p>Algorithms, Data Structures, Network Security, Computer Organization, Artificial Intelligence</p>
+            <p>Algorithms, Data Structures, Network Security, Computer Organization, Artificial Intelligence, Cloud Development</p>
           </div>
           <span class="exp-type mono">Lahore, PK</span>
         </li>

@@ -1,0 +1,191 @@
+<!doctype html>
+<!--
+  RESEARCH PAGE TEMPLATE. Copy this file, don't link to it.
+
+  1. Copy to projects/<slug>.html (e.g. coppa-audit.html) and make a folder assets/projects/<slug>/
+  2. Put the report in that folder as report.pdf (aim for under ~5 MB).
+     Save page 1 of the report as cover.png there too: it shows up as the banner automatically.
+  3. Replace every [BRACKETED] placeholder and every "SLUG". Delete any section you don't need.
+  4. Remove the robots "noindex" line below.
+  5. Add a row for it on the homepage under the Research group, and update the
+     "Project 00X / 00Y" counters and "Next project" links (see the comment in index.html).
+
+  Before publishing, check with the people involved:
+  - Sponsored work (e.g. CableLabs): ask the sponsor and your advisor first. A page with no PDF is a safe fallback.
+  - Team projects: credit teammates here and in the PDF, and ask them before posting.
+  - Studies with participants: no quotes or data that could identify anyone; publish only what the IRB approval allows.
+  - Audits with test accounts: remove account names, IDs and screenshots that show account details.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>[Project Title] — Bilal Ali</title>
+  <meta name="description" content="[One-sentence summary of the research question and finding.]" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 00X / 00Y</p>
+      <h1 class="p-title">[Project Title]</h1>
+      <p class="p-lede">
+        [Two sentences: the question you asked and the headline answer.
+        Someone should get the point in 30 seconds without opening the PDF.]
+      </p>
+
+      <!-- Keep exactly four fields: the strip is a four-column grid. -->
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>[2026]</dd></div>
+        <div><dt>Type</dt><dd>[Privacy audit / User study / ...]</dd></div>
+        <div><dt>With</dt><dd>[CMU, course or partner]</dd></div>
+        <div><dt>Report</dt><dd><a href="../assets/projects/SLUG/report.pdf" target="_blank" rel="noopener">PDF, [N] pages</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="../assets/projects/SLUG/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+        <a class="btn" href="../assets/projects/SLUG/report.pdf" download="BilalAli_[Short_Title]_Report.pdf">Download PDF ↓</a>
+        <!-- Optional: <a class="btn" href="[CODE_URL]" target="_blank" rel="noopener">View code ↗</a> -->
+      </div>
+    </section>
+
+    <!-- Cover: save page 1 of the report as assets/projects/SLUG/cover.png -->
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/SLUG/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Question</h2>
+      <div class="prose">
+        <p>[What you set out to find out, and why it matters. Name the law, system or population involved.]</p>
+        <p>[Optional second paragraph: context or prior work this builds on.]</p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Method</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>[Step]</strong><p>[What you did]</p></li>
+          <li><span class="step">02</span><strong>[Step]</strong><p>[What you did]</p></li>
+          <li><span class="step">03</span><strong>[Step]</strong><p>[What you did]</p></li>
+          <li><span class="step">04</span><strong>[Step]</strong><p>[What you did]</p></li>
+        </ol>
+        <ul class="chips">
+          <li>[Method]</li><li>[Tool]</li><li>[Framework]</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Findings</h2>
+      <div>
+        <!-- Optional headline numbers. Keep values short (4–6 characters) so they fit on one line. -->
+        <div class="stats">
+          <div><span class="stat-num">[N]</span><span class="stat-label">[What it counts]</span></div>
+          <div><span class="stat-num">[N%]</span><span class="stat-label">[What it measures]</span></div>
+          <div><span class="stat-num">[N]</span><span class="stat-label">[What it counts]</span></div>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>[Finding]</strong><p>[One or two sentences of evidence.]</p></div></li>
+          <li><div><strong>[Finding]</strong><p>[One or two sentences of evidence.]</p></div></li>
+          <li><div><strong>[Finding]</strong><p>[One or two sentences of evidence.]</p></div></li>
+        </ul>
+        <!-- Optional results table -->
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>[Condition]</th><th>[Measure]</th><th>[Measure]</th></tr></thead>
+            <tbody>
+              <tr><td>[Row]</td><td>[Value]</td><td>[Value]</td></tr>
+              <tr><td>[Row]</td><td>[Value]</td><td>[Value]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Recommendations</h2>
+      <ul class="p-list">
+        <li><div><strong>[For whom: platform / regulator / developers]</strong><p>[What they should do.]</p></div></li>
+        <li><div><strong>[For whom]</strong><p>[What they should do.]</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Limitations &amp; ethics</h2>
+      <div class="prose">
+        <p>[Sample size, scope, what you couldn't test.]</p>
+        <p>[Ethics: IRB approval, how data was anonymized, test accounts used, anything removed from this page.]</p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Report</h2>
+      <div>
+        <div class="prose">
+          <p>[One line on what the full report adds: detailed method, all results, appendices.]</p>
+          <p>Team: [Names of teammates], with [advisor / partner]. <!-- Delete if solo. --></p>
+        </div>
+        <div class="p-links mono">
+          <a class="btn btn-solid" href="../assets/projects/SLUG/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+          <a class="btn" href="../assets/projects/SLUG/report.pdf" download="BilalAli_[Short_Title]_Report.pdf">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Figures: drop 01, 02 ... (.png/.jpg) into assets/projects/SLUG/. Use black-and-white figures to match the site. -->
+    <section class="p-block" data-media-section>
+      <h2><span>07</span>Figures</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/SLUG/01">
+          <div class="media-frame"></div><figcaption data-n="01">[Figure caption]</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/SLUG/02">
+          <div class="media-frame"></div><figcaption data-n="02">[Figure caption]</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="[next-project].html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>[Next Project Title]</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

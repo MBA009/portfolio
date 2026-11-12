@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Privacy Labels — Bilal Ali</title>
+  <meta name="description" content="A 62-person experiment comparing two AI privacy label designs: shorter labels improve understanding but not willingness to use." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='black'/><rect x='8' y='8' width='16' height='16' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="../index.html" class="logo mono" aria-label="Home">BA<span class="logo-mark">■</span></a>
+    <nav class="nav mono" aria-label="Primary">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle mono" id="themeToggle" type="button" aria-label="Toggle color theme">
+      <span class="swatch" aria-hidden="true"></span><span class="theme-label">Invert</span>
+    </button>
+  </header>
+
+  <main id="main" class="project">
+    <section class="p-hero">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="eyebrow mono">Project 008 / 010</p>
+      <h1 class="p-title">AI Privacy Labels</h1>
+      <p class="p-lede">
+        Do "nutrition labels" for AI actually help people understand what
+        happens to their data? In a 62-person experiment, a short,
+        guarantee-focused label beat a dense technical one on understanding
+        and confidence. Neither label changed whether people would use the
+        product.
+      </p>
+
+      <dl class="p-meta">
+        <div><dt>Year</dt><dd>2025</dd></div>
+        <div><dt>Type</dt><dd>Online experiment</dd></div>
+        <div><dt>With</dt><dd>CMU 17-331 · Prof. Hana Habib</dd></div>
+        <div><dt>Report</dt><dd><a href="../assets/projects/ai-privacy-labels/report.pdf" target="_blank" rel="noopener">PDF, 15 pages</a></dd></div>
+      </dl>
+
+      <div class="p-links mono">
+        <a class="btn btn-solid" href="../assets/projects/ai-privacy-labels/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+        <a class="btn" href="../assets/projects/ai-privacy-labels/report.pdf" download="BilalAli_AI_Privacy_Labels_Report.pdf">Download PDF ↓</a>
+      </div>
+    </section>
+
+    <section data-media-section>
+      <figure class="media p-cover" data-media="../assets/projects/ai-privacy-labels/cover">
+        <div class="media-frame"></div>
+      </figure>
+    </section>
+
+    <section class="p-block">
+      <h2><span>01</span>Question</h2>
+      <div class="prose">
+        <p>
+          Companies like Twilio and Motorola Solutions publish "AI nutrition
+          labels" that summarize which models a product uses, what data it
+          keeps, whether that data trains future models, and how much human
+          oversight there is. Most research asks whether to label AI at all,
+          not how a label's design changes what people take away from it.
+        </p>
+        <p>
+          We asked two things: how label design affects people's understanding
+          of an AI system's data practices and their confidence in that
+          understanding, and whether it changes their willingness to use the
+          system.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>02</span>Method</h2>
+      <div>
+        <ol class="pipeline">
+          <li><span class="step">01</span><strong>Design</strong><p>Two labels for a fictional assistant, "SpecAI": a dense Twilio-style table and a short Motorola-style card</p></li>
+          <li><span class="step">02</span><strong>Recruit</strong><p>62 US adults on Prolific who use AI tools, each shown one label at random</p></li>
+          <li><span class="step">03</span><strong>Measure</strong><p>Likert ratings of understanding, confidence and willingness, plus open-ended feedback</p></li>
+          <li><span class="step">04</span><strong>Analyze</strong><p>Descriptive comparisons between conditions and a thematic analysis of comments</p></li>
+        </ol>
+        <ul class="chips">
+          <li>Between-subjects</li><li>Survey experiment</li><li>Prolific</li><li>Likert scales</li><li>Thematic analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>03</span>Findings</h2>
+      <div>
+        <div class="stats">
+          <div><span class="stat-num">62</span><span class="stat-label">Participants</span></div>
+          <div><span class="stat-num">+0.6</span><span class="stat-label">Understanding, short label (5-point scale)</span></div>
+          <div><span class="stat-num">+0.7</span><span class="stat-label">Confidence, short label (5-point scale)</span></div>
+        </div>
+        <ul class="p-list">
+          <li><div><strong>Shorter labels are understood better</strong><p>The concise, guarantee-focused label scored higher on perceived understanding (3.5 vs 2.9) and confidence (3.0 vs 2.3), although both labels described the same system.</p></div></li>
+          <li><div><strong>Understanding didn't change adoption</strong><p>Willingness to use was the same under both labels (2.4 of 5). Labels work as education, not as a lever on adoption.</p></div></li>
+          <li><div><strong>Reluctant users already use it</strong><p>Almost everyone who said they wouldn't use SpecAI already uses ChatGPT regularly, which is the kind of system the labels actually described.</p></div></li>
+          <li><div><strong>A knowledge gap</strong><p>Participants with AI/ML background felt more in control after reading a label; those without it felt less.</p></div></li>
+          <li><div><strong>What people wanted</strong><p>Plain-language definitions, and clear answers on retention periods, training-data use and human oversight.</p></div></li>
+        </ul>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Measure</th><th>Dense (Twilio-style)</th><th>Short (Motorola-style)</th></tr></thead>
+            <tbody>
+              <tr><td>Participants</td><td>35</td><td>27</td></tr>
+              <tr><td>Perceived understanding</td><td>2.9</td><td>3.5</td></tr>
+              <tr><td>Confidence</td><td>2.3</td><td>3.0</td></tr>
+              <tr><td>Willing to use</td><td>57%</td><td>67%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>04</span>Recommendations</h2>
+      <ul class="p-list">
+        <li><div><strong>Label designers</strong><p>Lead with a few concrete guarantees in plain language rather than disclosing everything. Define terms like "guardrails" and "human in the loop".</p></div></li>
+        <li><div><strong>Policymakers</strong><p>Standardize a concise label format, as nutrition labels did, and make retention and training-data use the most visible fields.</p></div></li>
+        <li><div><strong>Anyone mandating a label</strong><p>Test it with a diverse population, and show it where decisions are made instead of burying it in settings.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="p-block">
+      <h2><span>05</span>Limitations &amp; ethics</h2>
+      <div class="prose">
+        <p>
+          The two labels differed in length, depth, layout and framing all at
+          once, so no single feature explains the effect. Understanding was
+          self-reported rather than tested, the product was hypothetical, and
+          62 English-speaking Prolific participants don't represent all AI users.
+        </p>
+        <p>
+          Participants gave informed consent and were paid for their time.
+          Low-quality responses were excluded before analysis. The study
+          collected no identifying information, and this page doesn't reproduce
+          any participant comments.
+        </p>
+      </div>
+    </section>
+
+    <section class="p-block">
+      <h2><span>06</span>Report</h2>
+      <div>
+        <div class="prose">
+          <p>
+            The full report, <em>Do AI Privacy Labels Help People Better
+            Understand How Their Data Is Used?</em>, includes both labels, every
+            chart and the policy implications.
+          </p>
+          <p>Team: Bakti Satria Adhityatama, Aditi Balaji, Michael Stoneman and Elijah Zhao, advised by Prof. Hana Habib.</p>
+        </div>
+        <div class="p-links mono">
+          <a class="btn btn-solid" href="../assets/projects/ai-privacy-labels/report.pdf" target="_blank" rel="noopener">Read the report ↗</a>
+          <a class="btn" href="../assets/projects/ai-privacy-labels/report.pdf" download="BilalAli_AI_Privacy_Labels_Report.pdf">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-block" data-media-section>
+      <h2><span>07</span>Figures</h2>
+      <div class="gallery">
+        <figure class="media" data-media="../assets/projects/ai-privacy-labels/01">
+          <div class="media-frame"></div><figcaption data-n="01">The two labels: dense Twilio-style (left), short Motorola-style (right)</figcaption>
+        </figure>
+        <figure class="media" data-media="../assets/projects/ai-privacy-labels/02">
+          <div class="media-frame"></div><figcaption data-n="02">Self-reported AI/ML knowledge vs. feeling in control</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a class="p-next" href="child-ad-targeting.html">
+      <span class="mono">Next project</span>
+      <span class="p-next-title"><span>Ads on Kids' Google Accounts</span><span aria-hidden="true">→</span></span>
+    </a>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>© <span id="yearFoot">2026</span> Muhammad Bilal Ali</span>
+    <span>Local time <span id="clock">--:--</span></span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
